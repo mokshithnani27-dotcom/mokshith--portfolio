@@ -1,0 +1,214 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Outfit", system-ui, sans-serif;
+  --font-sans: "Plus Jakarta Sans", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+}
+
+@layer base {
+  html {
+    background-color: #05070e;
+    color: #f1f5f9;
+    font-family: var(--font-sans);
+    scroll-behavior: smooth;
+    scroll-padding-top: 5.5rem;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+
+  body {
+    overflow-x: hidden;
+    letter-spacing: 0.01em;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+    text-wrap: balance;
+  }
+}
+
+/* Custom sleek dark scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #05070e;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(56, 189, 248, 0.25);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(139, 92, 246, 0.45);
+}
+
+/* Compositor-only smooth keyframes */
+@keyframes orbit-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes orbit-spin-reverse {
+  from {
+    transform: rotate(360deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes aura-breathe {
+  0%,
+  100% {
+    opacity: 0.55;
+    transform: scale(0.96);
+  }
+  50% {
+    opacity: 0.9;
+    transform: scale(1.04);
+  }
+}
+
+@keyframes beam-sweep {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(220%);
+  }
+}
+
+@keyframes marquee-scroll {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes text-shimmer {
+  0% {
+    background-position: -200% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
+@keyframes entrance-shockwave {
+  0% {
+    transform: scale(0.6);
+    opacity: 0.95;
+  }
+  100% {
+    transform: scale(2.6);
+    opacity: 0;
+  }
+}
+
+@keyframes entrance-shockwave-delay {
+  0% {
+    transform: scale(0.5);
+    opacity: 0.85;
+  }
+  100% {
+    transform: scale(2.2);
+    opacity: 0;
+  }
+}
+
+@keyframes horizon-flash {
+  0% {
+    opacity: 0.9;
+    transform: scale(0.8);
+    filter: blur(16px);
+  }
+  60% {
+    opacity: 0.4;
+    transform: scale(1.4);
+    filter: blur(30px);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.8);
+    filter: blur(48px);
+  }
+}
+
+.animate-orbit-slow {
+  animation: orbit-spin 14s linear infinite;
+}
+
+.animate-orbit-reverse {
+  animation: orbit-spin-reverse 22s linear infinite;
+}
+
+.animate-aura-breathe {
+  animation: aura-breathe 5.5s ease-in-out infinite;
+}
+
+.animate-beam-sweep {
+  animation: beam-sweep 2.8s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+}
+
+.animate-marquee {
+  animation: marquee-scroll 34s linear infinite;
+}
+
+.animate-text-shimmer {
+  background-size: 200% auto;
+  animation: text-shimmer 4s linear infinite;
+}
+
+.animate-entrance-shockwave {
+  animation: entrance-shockwave 1.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-entrance-shockwave-2 {
+  animation: entrance-shockwave-delay 1.5s cubic-bezier(0.16, 1, 0.3, 1) 0.18s forwards;
+}
+
+.animate-horizon-flash {
+  animation: horizon-flash 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-orbit-slow,
+  .animate-orbit-reverse,
+  .animate-aura-breathe,
+  .animate-beam-sweep,
+  .animate-marquee,
+  .animate-text-shimmer,
+  .animate-entrance-shockwave,
+  .animate-entrance-shockwave-2,
+  .animate-horizon-flash {
+    animation: none;
+  }
+}
+
+/* Futuristic glass surface utility */
+.glass-panel {
+  background: linear-gradient(
+    145deg,
+    rgba(13, 20, 38, 0.72) 0%,
+    rgba(8, 12, 24, 0.62) 100%
+  );
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
